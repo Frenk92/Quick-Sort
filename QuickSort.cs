@@ -176,7 +176,7 @@ namespace Oxide.Plugins
 
         private void OnLootEntity(BasePlayer player, BaseEntity entity)
         {
-            if (permission.UserHasPermission(player.UserIDString, permUse) && !(entity is VendingMachine) && !(entity is ShopFront))
+            if (permission.UserHasPermission(player.UserIDString, permUse) && !(entity is VendingMachine) && !(entity is ShopFront) && !(entity is BigWheelBettingTerminal))
             {
                 UserInterface(player);
             }
