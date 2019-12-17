@@ -69,4 +69,4 @@
 ## Credits
 
 - **emu**, for the original version of this plugin
-- **Wulf**, the original author of this plugin
+- **Wulf**, the original author of the re-written version of this plugin
