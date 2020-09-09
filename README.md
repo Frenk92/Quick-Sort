@@ -88,7 +88,6 @@ This plugin provides both chat and console commands using the same syntax. When 
 
 ```json
 {
-{
   "Deposit": "Deposit",
   "DepositAll": "All",
   "DepositAmmo": "Ammo",
