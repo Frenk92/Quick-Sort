@@ -1,4 +1,4 @@
-**Quick Sort** adds a new GUI menu when looting containers and players. Players can choose what type of items they want to put in the container, or even loot all items from the container.
+**Quick Sort** adds a new GUI menu when looting containers and players. Players can choose what type of items they want to put in the container, or even loot all items from the container. Also supports automated looting containers that isn't accepting players items.
 
 ## Permissions
 
@@ -14,7 +14,7 @@ This plugin provides both chat and console commands using the same syntax. When 
 ```
 /qs  <help | h> - show commands list.
 /qs - toggle QuickSort UI.
-/qs autolootall - toggle automated looting.
+/qs auto - toggle automated looting.
 /qs style "center/lite/right/custom" - change UI style.
 /qs container "main/wear/belt" - add/remove container type from the sort (if they are enabled in the configuration).
 ```
@@ -112,7 +112,7 @@ This plugin provides both chat and console commands using the same syntax. When 
   "Style": "Quick Sort GUI style is now {0}",
   "AutoLootAll": "Automated looting is now {0}",
   "ContainerType": "Quick Sort for container type {0} is now {1}",
-  "Help": "List Commands:\n<color=#FFFF00>/{0}</color> - Enable/Disable GUI.\n<color=#FFFF00>/{0} autolootall - Enable/Disable automated looting.\n<color=#FFFF00>/{0} style \"center/lite/right/custom\" - change GUI style.\n<color=#FFFF00>/{0} conatiner \"main/wear/belt\" - add/remove container type from the sort."
+  "Help": "List Commands:\n<color=#FFFF00>/{0}</color> - Enable/Disable GUI.\n<color=#FFFF00>/{0} auto - Enable/Disable automated looting.\n<color=#FFFF00>/{0} style \"center/lite/right/custom\" - change GUI style.\n<color=#FFFF00>/{0} conatiner \"main/wear/belt\" - add/remove container type from the sort."
 }
 ```
 

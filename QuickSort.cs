@@ -273,7 +273,7 @@ namespace Oxide.Plugins
                 ["ContainerType"] = "Quick Sort for container type {0} is now {1}",
                 ["Help"] = "List Commands:\n" +
                 "<color=#FFFF00>/{0}</color> - Enable/Disable GUI.\n" +
-                "<color=#FFFF00>/{0} autolootall - Enable/Disable automated looting.\n" +
+                "<color=#FFFF00>/{0} auto - Enable/Disable automated looting.\n" +
                 "<color=#FFFF00>/{0} style \"center/lite/right/custom\" - change GUI style.\n" +
                 "<color=#FFFF00>/{0} conatiner \"main/wear/belt\" - add/remove container type from the sort.",
             }, this);
@@ -306,7 +306,7 @@ namespace Oxide.Plugins
                 ["ContainerType"] = "Быстрая сортировка для типа контейнера {0} теперь {1}",
                 ["Help"] = "Список команд:\n" +
                 "<color=#FFFF00>/{0}</color> - Включить/Отключить GUI быстрой сортировки.\n" +
-                "<color=#FFFF00>/{0} autolootall</color> - Включить/Отключить забирать всё автоматически.\n" +
+                "<color=#FFFF00>/{0} auto</color> - Включить/Отключить забирать всё автоматически.\n" +
                 "<color=#FFFF00>/{0} style <center/lite/right/custom></color> - изменить стиль GUI быстрой сортировки.\n" +
                 "<color=#FFFF00>/{0} conatiner <main/wear/belt></color> - добавить/удалить тип контейнера для сортировки.",
             }, this, "ru");
@@ -446,9 +446,9 @@ namespace Oxide.Plugins
                     var firstCmd = configData.chatS.commands[0];
                     Print(player, Lang("Help", player.Id, firstCmd));
                     return;
-                case "autolootall":
+                case "auto":
                     playerData.autoLootAll = !playerData.autoLootAll;
-                    Print(player, Lang("AutoLootAll", player.Id, playerData.enabled ? Lang("Enabled", player.Id) : Lang("Disabled", player.Id)));
+                    Print(player, Lang("AutoLootAll", player.Id, playerData.autoLootAll ? Lang("Enabled", player.Id) : Lang("Disabled", player.Id)));
                     return;
                 case "style":
                     {
@@ -482,7 +482,7 @@ namespace Oxide.Plugins
                                             playerData.containers.main = flag;
                                         else
                                             playerData.containers.main = !playerData.containers.main;
-                                        Print(player, Lang("ContainerType", player.Id, "main", playerData.containers.main));
+                                        Print(player, Lang("ContainerType", player.Id, "main", playerData.containers.main ? Lang("Enabled", player.Id) : Lang("Disabled", player.Id)));
                                         return;
                                     }
                                 case "wear":
@@ -492,7 +492,7 @@ namespace Oxide.Plugins
                                             playerData.containers.wear = flag;
                                         else
                                             playerData.containers.wear = !playerData.containers.wear;
-                                        Print(player, Lang("ContainerType", player.Id, "wear", playerData.containers.wear));
+                                        Print(player, Lang("ContainerType", player.Id, "wear", playerData.containers.wear ? Lang("Enabled", player.Id) : Lang("Disabled", player.Id)));
                                         return;
                                     }
                                 case "belt":
@@ -502,7 +502,7 @@ namespace Oxide.Plugins
                                             playerData.containers.belt = flag;
                                         else
                                             playerData.containers.belt = !playerData.containers.belt;
-                                        Print(player, Lang("ContainerType", player.Id, "belt", playerData.containers.belt));
+                                        Print(player, Lang("ContainerType", player.Id, "belt", playerData.containers.belt ? Lang("Enabled", player.Id) : Lang("Disabled", player.Id)));
                                         return;
                                     }
                             }
