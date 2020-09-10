@@ -318,7 +318,7 @@ namespace Oxide.Plugins
 
         private void OnLootPlayer(BasePlayer player)
         {
-            if (UserHasPerm(player, permAutoLootAll))
+            if (UserHasPerm(player, permUse))
             {
                 UserInterface(player);
             }
@@ -337,32 +337,32 @@ namespace Oxide.Plugins
             }
             else if (UserHasPerm(player, permAutoLootAll))
             {
-
                 var playerData = GetPlayerData(player.userID);
                 var autoLootAll = configData.globalS.autoLootAll;
                 if (playerData != null) autoLootAll = playerData.autoLootAll;
-                if (!autoLootAll) return;
-
-                timer.Once(configData.globalS.lootAllDelay, () =>
+                if (autoLootAll)
                 {
-                    List<ItemContainer> containers = GetLootedInventory(player);
-
-                    if (containers != null)
+                    timer.Once(configData.globalS.lootAllDelay, () =>
                     {
-                        foreach (var c in containers)
+                        List<ItemContainer> containers = GetLootedInventory(player);
+
+                        if (containers != null)
                         {
-                            if (c.HasFlag(ItemContainer.Flag.NoItemInput))
+                            foreach (var c in containers)
                             {
-                                AutoLoot(player);
-                                if (c.IsEmpty())
+                                if (c.HasFlag(ItemContainer.Flag.NoItemInput))
                                 {
-                                    player.EndLooting();
+                                    AutoLoot(player);
+                                    if (c.IsEmpty())
+                                    {
+                                        player.EndLooting();
+                                    }
+                                    return;
                                 }
-                                return;
                             }
                         }
-                    }
-                });
+                    });
+                }
             }
             if (UserHasPerm(player, permUse))
             {
